@@ -14,12 +14,12 @@ sh 'java simple.java'
 }
 stage('compilar con parametro') {
 steps {
-sh 'javac param.java' 
+sh 'javac Param.java' 
 }
 }
 stage('ejecutar parametro') {
 steps {
-sh 'java param.java' 
+sh 'java Param.java' 
 }
 }
 }
