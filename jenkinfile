@@ -13,7 +13,7 @@ sh 'javac Simple.java'
 }
 stage('ejecutar'){
 steps{
-sh 'java Simple.java'
+sh 'java Simple'
 }
 }
 stage('compilar con parametro') {
@@ -23,7 +23,7 @@ sh 'javac Param.java'
 }
 stage('ejecutar parametro') {
 steps {
-sh 'java Param.java' 
+sh 'java Param ${NAME)' 
 }
 }
 }
