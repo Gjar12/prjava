@@ -1,29 +1,25 @@
 pipeline {
-agent any
-environment {
-  // Environment variables specified
-  NAME ='Gerardo'
-}
-
- stages {
-stage('compilar') {
-steps {
-sh 'javac Simple.java' 
-}
-}
-stage('ejecutar'){
-steps{
-sh 'java Simple'
-}
-}
-stage('compilar con parametro') {
-steps {
-sh 'javac Param.java' 
-}
-}
-stage('ejecutar parametro') {
-steps {
-sh 'java Param ${NAME)' 
-}
-}
+  agent any
+  environment {
+     NAME = "gerardo"
+     MAQUINA = """${sh(
+           returnStdout: true,
+           script: 'uname -n'
+          )
+          }"""
+  }
+  stages {
+    stage('compilar') {
+@@ -28,5 +33,12 @@ pipeline {
+        sh 'java Param ${NAME}'
+      }
+    }
+    stage('nombreMaquina'){
+      steps{
+        echo "Y aquí visualizeo el nombre de la maquina "
+        sh 'javac Maquina.java'
+        sh 'java Maquina ${MAQUINA}'
+      }
+    }
+  }
 }
