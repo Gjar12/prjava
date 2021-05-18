@@ -1,15 +1,19 @@
 pipeline {
 agent any
+environment {
+  // Environment variables specified
+  NAME ='Gerardo'
+}
 
  stages {
 stage('compilar') {
 steps {
-sh 'javac simple.java' 
+sh 'javac Simple.java' 
 }
 }
 stage('ejecutar'){
 steps{
-sh 'java simple.java'
+sh 'java Simple.java'
 }
 }
 stage('compilar con parametro') {
