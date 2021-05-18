@@ -4,12 +4,12 @@ agent any
  stages {
 stage('compilar') {
 steps {
-javac simple 
+javac simple.java 
 }
 }
 stage('ejecutar'){
 steps{
-java 
+java simple.java
 }
 }
 }
