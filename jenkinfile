@@ -1,0 +1,15 @@
+pipeline {
+agent any
+
+ stages {
+stage('compilar') {
+steps {
+javac simple 
+}
+}
+stage('ejecutar'){
+steps{
+java 
+}
+}
+}
